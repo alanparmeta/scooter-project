@@ -8,3 +8,4 @@ else:
         print("Enjoy!")
     else:
         print("Please charge!")
+        

@@ -1,0 +1,38 @@
+classDiagram
+
+    Book <|-- Biography
+    Book <|-- Magazine
+    Book "*" --o "*" Basket
+    Basket "1" --* "1" Customer
+    Customer -- Magazine: subscriber
+
+    class Book {
+        +string author
+        +string title
+        +number price
+        +number rating
+        +setPrice(newPrice)
+        +prettyPrice()
+    }
+
+    class Biography {
+        +string subject
+        +isAutobiography()
+    }
+    
+    class Magazine {
+        +datetime frequency
+        +addSubscriber(user)
+    }
+
+    class Basket {
+        +arr items
+        +calculateTotal()
+        +applyDiscount(percent)
+    }
+
+    class Customer {
+        +string name
+        +number id
+        +purchaseItems()
+    }
