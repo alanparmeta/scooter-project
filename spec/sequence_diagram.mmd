@@ -1,22 +1,48 @@
 sequenceDiagram
-    Customer ->> Book: Add to basket
-    activate Book
-    Book ->> Basket: Added
-    activate Basket
-    Basket -->> Customer: Display total
-    deactivate Basket
+    loop For all scooters
+        Scooter ->> ScooterApp : Add scooter
+    end
+
+    User ->> ScooterApp: Register
+    alt already registered
+        ScooterApp -->> User: Log 'already registered'
+    else not already registered
+        alt older than seventeen
+            ScooterApp --> User: Complete user account
+            ScooterApp -->> User: Log 'now registered'
+        else younger than seventeen
+            ScooterApp -->> User: Log 'too young'
+        end
+    end
     
-    alt cancels purchase
-        Customer ->> Basket: Cancel
-        Basket ->> Book: Remove
-        Basket -->> Customer: Confirm
-        deactivate Book
-    else complete purchase
-        activate Book
-        Customer ->> Basket: Payment details
-        activate Basket
-        Basket -->> Customer: Confirm
-        deactivate Basket
-        Book -->> Customer: Ship
-        deactivate Book
+    User ->> ScooterApp: Log in
+    alt login matches 
+        ScooterApp -->> User: Log 'correct'
+        User ->> ScooterApp: Rent request
+        alt scooter broken
+        ScooterApp -->> User: Log 'request repair'
+            User ->> Scooter: Request repair
+            Scooter ->> ScooterApp: Remove scooter
+            User ->> Scooter: Dock scooter
+                alt no station
+                    Scooter -->> User: Log 'please dock'
+                else at station
+                    ScooterApp --> Scooter: Scooter repair time
+                    activate Scooter
+                    ScooterApp ->> Scooter: Update working status
+                    Scooter ->> ScooterApp: Add scooter
+                end
+        else scooter working
+            alt charge > 20
+                ScooterApp -->> User: Log 'enjoy ride'
+            else charge <= 20
+                ScooterApp -->> User: Log 'please charge'
+                User -->> Scooter: Recharge scooter
+            end
+            Scooter ->> ScooterApp: Rent scooter
+            User ->> ScooterApp: Return scooter
+            User ->> Scooter: Dock scooter
+        end
+    else login does not match
+        ScooterApp -->> User: Log 'incorrect'
     end

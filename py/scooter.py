@@ -1,3 +1,5 @@
+# conditional logic sandbox for isBroken and charge
+
 isBroken = False
 charge = 19
 

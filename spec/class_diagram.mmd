@@ -1,18 +1,41 @@
 classDiagram
 
+%% I am proposing composition as the relationship between the users/scooters and the scooter app, because there is a strong lifecycle dependency; the user and scooter classes are dependent on the scooter app for the meaning of their existence:
+ScooterApp "1" *-- "0..n" User
+ScooterApp "1" *-- "0..n" Scooter
+%% Furthermore, the app can exist without any users or scooters, and will before any scooters and users are added/registered, whereas one scooter app registers all the users and scooters. The maximum number of both users and scooters are finite, therefore n seems appropriate.
+%% Another note, the user class cannot interact with the scooter class directly; they need the app to make a chain of association with each other. Of course in practice the users will interact with the scooters, but the classes exist in layers of abstraction.
+
+%% The following class has a list of stations a scooter can be checked out from, and it registers users to hire scooters as long as they are eligible in terms of age:
+class ScooterApp {
+    +string username
+    +string password
+    +number age
+    +number accountChange
+    +bool loggedIn
+    register(user)
+    logIn(username, password)
+    addScooter(location, scooter)
+    removeScooter(scooterToRemove)
+}
+
+%% This class represents the individual scooters that users will rent from stations; it tracks the attributes of the scooters and the users, including location, battery and repair status:
 class Scooter {
+    +string location
     +string station
     +string user
     +number serial
     +number charge
     +bool isBroken
-    +book dock
+    +bool docked
     +rent()
-    +docked(station)
+    +dock(station)
     +recharge()
     +requestRepair()
+    +setInterval()
 }
 
+%% For each user of the scooter app, an instance of the class User will be created. When this class is instantiated, variables will be initialized as the following properties:
 class User {
     +string username
     +string password
