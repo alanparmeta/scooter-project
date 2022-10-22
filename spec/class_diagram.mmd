@@ -4,7 +4,7 @@ classDiagram
 ScooterApp "1" *-- "0..n" User
 ScooterApp "1" *-- "0..n" Scooter
 %% Furthermore, the app can exist without any users or scooters, and will before any scooters and users are added/registered, whereas one scooter app registers all the users and scooters. The maximum number of both users and scooters are finite, therefore n seems appropriate.
-%% Another note, the user class cannot interact with the scooter class directly; they need the app to make a chain of association with each other. Of course in practice the users will interact with the scooters, but the classes exist in layers of abstraction.
+%% Another note, the user class cannot interact with the scooter class directly; they need the app to make a chain of association with each other. Of course in practice the users will interact with the scooters, for instance for docking, but the classes exist in layers of abstraction.
 
 %% The following class has a list of stations a scooter can be checked out from, and it registers users to hire scooters as long as they are eligible in terms of age:
 class ScooterApp {
