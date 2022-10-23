@@ -9,13 +9,19 @@ describe('scooter object', () => {
 })
 
 //Method tests
-//describe('scooter methods', () => {
   // tests here!
 
   //rent method
-
+  describe('rent method', () => {
+    scooter = new Scooter
+    scooter.rent()
+    string = scooter.message
+    test('checks that rent has an output', () => {
+      expect.anything(string)
+    })
+  })
   //dock method
-
+  
   //requestRepair method
 
   //charge method

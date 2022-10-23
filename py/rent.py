@@ -1,4 +1,4 @@
-# conditional logic sandbox for isBroken and charge
+# conditional logic sandbox for isBroken and charge in rent() method for Scooter class
 
 isBroken = False
 charge = 19

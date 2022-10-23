@@ -7,6 +7,23 @@ class Scooter {
     this.isBroken = false
     this.docked = true
   }
+  rent () {
+  if (this.isBroken === true) {
+    this.message = "Broken!"
+    console.log(message)
+    } else {
+      if (this.charge > 20) {
+        this.message = "Enjoy!"
+        console.log(this.message)
+      } else {
+        this.message = "Please charge!"
+        console.log(this.message)
+      }
+    }
+  }
+  dock () {
+    
+  }
 }
 
 module.exports = Scooter
