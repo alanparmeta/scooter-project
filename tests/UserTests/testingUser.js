@@ -1,4 +1,6 @@
 const User = require('../../src/User')
+const ScooterApp = require('../../src/ScooterApp')
 user = new User
-register("alanparmenter", "Pineapple", 38)
-console.log(user)
+app = new ScooterApp
+app.register("alanparmenter", "Pineapple", 38)
+console.log(app)

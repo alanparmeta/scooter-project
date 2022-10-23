@@ -3,8 +3,9 @@ const User = require('../src/User')
 user = new User
 // test username
 describe('username', () => {
-  test('expect username to be undefined', () => {
-    expect(user.username).toBe(undefined);
+  user.username = "Alan"
+  test('expect username to be Alan', () => {
+    expect(user.username).toBe("Alan");
   })
 })
 // test password
