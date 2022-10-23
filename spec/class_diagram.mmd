@@ -8,6 +8,8 @@ ScooterApp "1" *-- "0..n" Scooter
 
 %% The following class has a list of stations a scooter can be checked out from, and it registers users to hire scooters as long as they are eligible in terms of age:
 class ScooterApp {
+    +array stations
+    +array registeredUsers
     +string username
     +string password
     +number age
@@ -18,6 +20,7 @@ class ScooterApp {
     addScooter(location, scooter)
     removeScooter(scooterToRemove)
 }
+%% Cannot find any mentions of arrays on the Mermaid docs, but since they are properties of the ScooterApp, I feel the need to reference them above
 
 %% This class represents the individual scooters that users will rent from stations; it tracks the attributes of the scooters and the users, including location, battery and repair status:
 class Scooter {

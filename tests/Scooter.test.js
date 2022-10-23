@@ -3,15 +3,13 @@ const User = require('../src/User')
 
 //typeof scooter === object
 describe('scooter object', () => {
-  test('does something', () => {
-    // edit this to be a real test!
-    expect(false).toEqual(true);
-  }
-)
+  test('checks scooter object is of type "object"', () => {
+    expect(typeof new Scooter).toEqual("object");
+  })
 })
 
 //Method tests
-describe('scooter methods', () => {
+//describe('scooter methods', () => {
   // tests here!
 
   //rent method
@@ -22,4 +20,4 @@ describe('scooter methods', () => {
 
   //charge method
 
-})
+//})
