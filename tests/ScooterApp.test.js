@@ -12,8 +12,10 @@ describe('scooter app stations', () => {
 // register user
 scooterApp = new ScooterApp
 describe('user registration', () => {
-  test('checks underage users are denied service', () => {
-    expect(scooterApp.message).toEqual("Denied!");
+  test('checks object is populated with three values', () => {
+    user = {"Alan", "Pineapple", 38}
+    register(user)
+    expect.anything(scooterApp.username);
   })
 })
 // log in

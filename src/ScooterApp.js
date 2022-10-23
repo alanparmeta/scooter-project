@@ -4,14 +4,13 @@ const Scooter = require('./Scooter')
 class ScooterApp {
   constructor() {
     this.stations = ["Manhattan", "Brooklyn", "Queens", "Bronx", "StatenIsland"]
-    this.registeredUsers = []
+    this.registeredUsers = {}
   }
   // methods here
   register(username, password, age) {
-    user.username = username
-    user.password = password
-    user.age = age
-    this.registeredUsers.push(user)
+    user[username] = username
+    this.registeredUsers[username] = {password, age}
+    console.log(typeof user)
   }
 }
 
