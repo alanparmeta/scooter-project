@@ -9,7 +9,12 @@ class ScooterApp {
   // methods here
   register(username, password, age) {
     user[username] = username
-    this.registeredUsers[username] = {password, age}
+    this.registeredUsers[username] = {
+      password,
+      age,
+      loggedIn: false,
+      accountChange: 0
+    }
     console.log(typeof user)
   }
 }
