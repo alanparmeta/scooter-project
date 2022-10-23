@@ -10,7 +10,12 @@ describe('scooter app stations', () => {
   })
 })
 // register user
-
+scooterApp = new ScooterApp
+describe('user registration', () => {
+  test('checks underage users are denied service', () => {
+    expect(scooterApp.message).toEqual("Denied!");
+  })
+})
 // log in
 
 // add scooter
