@@ -35,6 +35,11 @@ describe('scooter object', () => {
     expect(scooter.charge).toBe(100)
   })
   //requestRepair method
-  
+  test('request repair method', async () => {
+    const scooter = new Scooter
+    scooter.isBroken = true // break it first
+    await scooter.requestRepair();
+    expect(scooter.isBroken).toBe(false)
+  })
 
 //})

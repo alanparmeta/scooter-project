@@ -34,6 +34,11 @@ class Scooter {
     await new Promise(resolve => setTimeout(resolve, 2000)) // wait 2 seconds
     this.charge = 100
   }
+  async requestRepair() {
+    await new Promise(resolve => setTimeout(resolve, 2000)) // wait 2 seconds
+    this.isBroken = false
+    console.log("Repaired!")
+  }
 }
 
 module.exports = Scooter

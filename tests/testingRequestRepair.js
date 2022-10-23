@@ -1,4 +1,4 @@
 const Scooter = require('../src/Scooter')
 scooter = new Scooter
-scooter.charge()
+scooter.requestRepair()
 console.log(scooter)
