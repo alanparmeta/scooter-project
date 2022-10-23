@@ -9,8 +9,6 @@ describe('scooter object', () => {
 })
 
 //Method tests
-  // tests here!
-
   //rent method
   describe('rent method', () => {
     const scooter = new Scooter
@@ -41,5 +39,4 @@ describe('scooter object', () => {
     await scooter.requestRepair();
     expect(scooter.isBroken).toBe(false)
   })
-
 //})
