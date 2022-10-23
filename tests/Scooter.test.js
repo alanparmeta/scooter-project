@@ -13,7 +13,7 @@ describe('scooter object', () => {
 
   //rent method
   describe('rent method', () => {
-    scooter = new Scooter
+    const scooter = new Scooter
     scooter.rent()
     string = scooter.message
     test('checks that rent has an output', () => {
@@ -21,9 +21,20 @@ describe('scooter object', () => {
     })
   })
   //dock method
-  
+  describe('dock method', () => {
+    const scooter = new Scooter
+    scooter.dock("KX")
+    test('checks that dock takes an argument', () => {
+      expect(scooter.station).toEqual("KX")
+    })
+  })
+  //recharge method
+  test('recharge method', async () => {
+    const scooter = new Scooter
+    await scooter.recharge();
+    expect(scooter.charge).toBe(100)
+  })
   //requestRepair method
-
-  //charge method
+  
 
 //})

@@ -21,8 +21,18 @@ class Scooter {
       }
     }
   }
-  dock () {
-    
+  dock (station) {
+    if (station) {
+      this.station = station
+      this.docked = true
+      this.user = ""
+    } else {
+      throw "Docking station required!"
+    }
+  }
+  async recharge() {
+    await new Promise(resolve => setTimeout(resolve, 2000)) // wait 2 seconds
+    this.charge = 100
   }
 }
 
