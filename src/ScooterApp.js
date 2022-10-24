@@ -2,12 +2,15 @@ const User = require('./User')
 const Scooter = require('./Scooter')
 
 class ScooterApp {
+  // scooterSessions = []
   constructor() {
     this.stations = ["Manhattan", "Brooklyn", "Queens", "Bronx", "StatenIsland"]
-    this.registeredUsers = {}
+    // scooterSessions.push(this)
   }
+  this.registeredUsers = {}
   // methods here
   register(username, password, age) {
+    console.log(registeredUsers)
     if (this.registeredUsers[username]) {
       this.message = "Already registered!"
       console.log(this.message)
@@ -30,6 +33,25 @@ class ScooterApp {
       }
     }
   }
+  logIn(username, password) {
+    if (//"Alan" === "Rat"
+      username == this.registeredUsers[username]) {
+      //success
+      this.registeredUsers[username].loggedIn = true
+      console.log("Login success.")
+    } else {
+      // failure
+      throw "Username or password is incorrect."
+    }
+  }
+  addScooter(location, scooter) {
+    scooter = new Scooter
+    scooter.station = location
+    this.stations.push(location)
+  }
+  removeScooter(scooterToRemove) {
+    message = "Scooter has been removed."
+    console.log(message)
+  }
 }
-
 module.exports = ScooterApp
